@@ -9,10 +9,8 @@ func main() {
 	var result1 int
 	var result2 int
 	var data, _ = os.Open("puzzle")
-	// read file
 	var buffer = make([]byte, 10000)
 	data.Read(buffer)
-	// loop through buffer and compare first and third char of each line
 	for i := 0; i < len(buffer); i += 4 {
 		if buffer[i] == 65 {
 			if buffer[i+2] == 88 {
@@ -48,10 +46,7 @@ func main() {
 				result2 = result2 + 6 + 1
 			}
 		}
-		// add buffer[i+2] to result1
-		// fmt.Println(result1, int(buffer[i+2]-87))
 		result1 = result1 + int(buffer[i+2]-87)
-		// fmt.Println(result1)
 	}
 	fmt.Println("Result 1:", result1)
 	fmt.Println("Result 2:", result2)
