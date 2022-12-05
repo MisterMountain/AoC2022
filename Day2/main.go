@@ -12,6 +12,21 @@ func main() {
 	var buffer = make([]byte, 10000)
 	data.Read(buffer)
 	for i := 0; i < len(buffer); i += 4 {
+		switch string(buffer[i]) {
+		case "A":
+			switch string(buffer[i+2]) {
+			case "X":
+				result1 = result1 + 3
+				result2 = result2 + 0 + 3
+			case "Y":
+				result1 = result1 + 6
+				result2 = result2 + 3 + 1
+			case "Z":
+				result1 = result1 + 0
+				result2 = result2 + 6 + 2
+			}
+
+		}
 		if buffer[i] == 65 {
 			if buffer[i+2] == 88 {
 				result1 = result1 + 3
